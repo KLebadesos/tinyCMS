@@ -83,12 +83,19 @@
                     <a href="">Posts</a>
                     </li>
                     <li class="list-group-item">
-                    <a href="">Categories</a>
+                    <a href="{{ route('categories.index') }}">Categories</a>
                     </li>
                   </ul>
                 </div>
                 
                 <div class="col-md-8">
+                @if(session()->has('success'))
+                    <div class="alert alert-success">
+                        {{ session()->get('success') }}
+                    </div>
+                @endif
+
+
                 @yield('content')
                 </div>
 
