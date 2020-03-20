@@ -14,6 +14,7 @@
     </div>
 
     <div class="card-body">
+      @if ($categories->count() > 0)
         <table class="table">
             <thead>
                 <th>Name</th>
@@ -34,6 +35,11 @@
                 @endforeach                
             </tbody>
         </table>
+      @else
+      <h3 class="text-center alert alert-info">
+        No categories yet.
+      </h3>
+      @endif
     </div>
 </div>
 
