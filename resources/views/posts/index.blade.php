@@ -24,8 +24,14 @@
           <td> <img src="{{ asset('storage/'.$post->image) }}" width="60px" height="60px" alt="image"></td>
           <td> {{ $post->title }}</td>
           <td>
-            <a href="" class="btn btn-sm btn-info">Edit</a>
-            <a href="" class="btn btn-sm btn-danger">Trash</a>
+            <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-info">Edit</button>
+              <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-sm btn-danger ml-2">Trash</button>
+              </form>
+            </div>
           </td>
         </tr>
         @endforeach
