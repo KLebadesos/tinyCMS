@@ -42,19 +42,19 @@ class PostsController extends Controller
     {
         //dd($request->image->store('posts'));
         //dd($request->all());
-      $image =  $request->image->store('posts');
-      
-      Post::create([
-          'title'         => $request->title,
-          'description'   => $request->description,
-          'content'       => $request->content,
-          'publish_at'    => $request->publish_at,
-          'image'         => $image
-      ]);
+     $image =  $request->image->store('posts');
+     
+     Post::create([
+         'title'         => $request->title,
+         'description'   => $request->description,
+         'content'       => $request->content,
+         'published_at'  => $request->published_at,
+         'image'         => $image
+     ]);
 
-      session()->flash('success','Post created successfully');
+     session()->flash('success','Post created successfully');
 
-      return redirect(route('posts.index'));
+     return redirect(route('posts.index'));
 
     }
 
