@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\Posts\CreatePostsRequest;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
+
 
 
 class PostsController extends Controller
@@ -101,6 +103,7 @@ class PostsController extends Controller
         $post = Post::withTrashed()->where('id', $id)->firstOrFail();
 
         if ($post->trashed()){
+            Storage::delete($post->image);
             $post->forceDelete();
             session()->flash('success','Permanently deleted.');
             return redirect(route('trashed-posts.index'));
