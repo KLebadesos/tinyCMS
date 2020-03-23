@@ -100,7 +100,7 @@ class PostsController extends Controller
             //upload image
             $image = $request->image->store('posts');
             //delete old image
-            Storage::delete($post->image);
+            $post->deleteImage();
             //copy image path
             $data['image'] = $image;
         }
@@ -125,7 +125,7 @@ class PostsController extends Controller
         $post = Post::withTrashed()->where('id', $id)->firstOrFail();
 
         if ($post->trashed()){
-            Storage::delete($post->image);
+            $post->deleteImage();
             $post->forceDelete();
             session()->flash('success','Permanently deleted.');
             return redirect(route('trashed-posts.index'));

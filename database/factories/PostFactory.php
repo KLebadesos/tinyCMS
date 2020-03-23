@@ -1,7 +1,6 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-use Illuminate\Support\Facades\File;
 use App\Post;
 use Faker\Generator as Faker;
 
