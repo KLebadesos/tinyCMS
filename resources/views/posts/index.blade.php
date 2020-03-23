@@ -29,7 +29,13 @@
               <div class="btn-group">
                 
                 @if (!$post->trashed())
-              <a href="{{ route('posts.edit', $post->id) }}" type="button" class="btn btn-sm btn-info">Edit</a>
+                  <a href="{{ route('posts.edit', $post->id) }}" type="button" class="btn btn-sm btn-info">Edit</a>
+                @else
+                  <form action="{{ route('restore-post', $post->id) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <button type="submit" class="btn btn-sm btn-info">Restore</button>
+                  </form>
                 @endif
 
                 <form action="{{ route('posts.destroy', $post->id) }}" method="POST">

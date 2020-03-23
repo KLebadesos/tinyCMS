@@ -17,6 +17,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <style>
+    a.btn.btn-info {
+        color:#fff;
+    }
+    </style>
+
     @yield('css')
 </head>
 <body>
