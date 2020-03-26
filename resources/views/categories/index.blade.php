@@ -18,6 +18,7 @@
         <table class="table">
             <thead>
                 <th>Name</th>
+                <th>Posts count</th>
                 <th colspan="2">Action</th>
             </thead>
 
@@ -26,6 +27,9 @@
                 <tr>
                     <td>
                         {{ $category->name }}
+                    </td>
+                    <td>
+                        <span class="badge badge-success">{{ $category->posts->count() }}</span>
                     </td>
                     <td>
                         <a href="{{ route('categories.edit',$category->id) }}" class="btn btn-info btn-sm">Edit</a>

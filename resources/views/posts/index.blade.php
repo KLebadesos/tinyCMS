@@ -17,6 +17,7 @@
         <thead>
           <th>Image</th>
           <th>Title</th>
+          <th>Category</th>
           <th>Action</th>
         </thead>
 
@@ -25,6 +26,7 @@
           <tr>
             <td> <img src="{{ asset('storage/'.$post->image) }}" width="60px" height="60px" alt="image"></td>
             <td> {{ $post->title }}</td>
+            <td> {{ $post->category->name }}</td>
             <td>
               <div class="btn-group">
                 
