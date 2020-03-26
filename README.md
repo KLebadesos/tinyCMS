@@ -4,8 +4,9 @@
 On going...
 
 - Run "php artisan db:seed"
-- Run "php artisan db:seed --class=PostsTableSeeder"
 - Run "php artisan db:seed --class=CategoriesTableSeeder"
+- Run "php artisan db:seed --class=PostsTableSeeder"
+
 
 - Add .env "FILESYSTEM_DRIVER=public"
 - Run "php artisan storage:link" to link public storage to app/public dir
