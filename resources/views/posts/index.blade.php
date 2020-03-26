@@ -26,7 +26,11 @@
           <tr>
             <td> <img src="{{ asset('storage/'.$post->image) }}" width="60px" height="60px" alt="image"></td>
             <td> {{ $post->title }}</td>
-            <td> {{ $post->category->name }}</td>
+            <td> 
+              <a href="{{ route('categories.edit', $post->category->id) }}">
+                {{ $post->category->name }}</td>
+              </a>
+            </td>
             <td>
               <div class="btn-group">
                 
