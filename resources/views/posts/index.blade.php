@@ -28,7 +28,7 @@
             <td> {{ $post->title }}</td>
             <td> 
               <a href="{{ route('categories.edit', $post->category->id) }}">
-                {{ $post->category->name }}</td>
+                {{ $post->category->name }}
               </a>
             </td>
             <td>
