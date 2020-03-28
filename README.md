@@ -5,6 +5,7 @@ On going...
 
 - Run "php artisan db:seed"
 - Run "php artisan db:seed --class=CategoriesTableSeeder"
+- Run "php artisan db:seed --class=TagsTableSeeder"
 - Run "php artisan db:seed --class=PostsTableSeeder"
 
 
