@@ -28,7 +28,9 @@
                         {{ $tag->name }}
                     </td>
                     <td>
-                        <span class="badge badge-success">0</span>
+                        <span class="badge badge-success">
+                            {{ $tag->posts->count() }}
+                        </span>
                     </td>
                     <td>
                         <a href="{{ route('tags.edit',$tag->id) }}" class="btn btn-info btn-sm">Edit</a>

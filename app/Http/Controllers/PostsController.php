@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Category;
+use App\Tag;
 use App\Http\Requests\Posts\CreatePostsRequest;
 use App\Http\Requests\Posts\UpdatePostRequest;
 
@@ -35,7 +36,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create')->with('categories', Category::all());
+        return view('posts.create')->with('categories', Category::all())->with('tags',Tag::all());
     }
 
     /**
@@ -50,7 +51,7 @@ class PostsController extends Controller
         //dd($request->all());
      $image =  $request->image->store('posts');
      
-     Post::create([
+     $post = Post::create([
          'title'         => $request->title,
          'description'   => $request->description,
          'content'       => $request->content,
@@ -58,6 +59,10 @@ class PostsController extends Controller
          'category_id'   => $request->category,
          'image'         => $image
      ]);
+
+    if ($request->tags){
+        $post->tags()->attach($request->tags);
+    }
 
      session()->flash('success','Post created successfully');
 
@@ -87,8 +92,9 @@ class PostsController extends Controller
         //assign first before die dump
         $data = Post::find($id);
         // /dd($data->title);
+        //dd($data->tags->pluck('id')->toArray());
 
-        return view('posts.create')->with('post', $data)->with('categories',Category::all());
+        return view('posts.create')->with('post', $data)->with('categories',Category::all())->with('tags',Tag::all());
     }
 
     /**
@@ -100,7 +106,6 @@ class PostsController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //dd($request->all());
         $data = $request->only(['title','description','content','published_at']);
         if($request->hasFile('image')){
             //upload image
@@ -109,6 +114,11 @@ class PostsController extends Controller
             $post->deleteImage();
             //copy image path
             $data['image'] = $image;
+        }
+
+        //check if already on the array if not attach vice versa.
+        if ($request->tags){
+            $post->tags()->sync($request->tags);
         }
 
         //update attributes
