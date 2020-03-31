@@ -17,8 +17,10 @@ On going...
 Plugins used:
 - trix for text editor.
 - flatpickr for date picker.
+- select2 for multi select.
 
 References:
 - https://github.com/basecamp/trix
 - https://cdnjs.com/libraries/trix/1.0.0
 - https://flatpickr.js.org
+- https://select2.org/
