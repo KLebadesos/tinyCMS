@@ -18,9 +18,11 @@ Plugins used:
 - trix for text editor.
 - flatpickr for date picker.
 - select2 for multi select.
+- gravatar for user avatar.
 
 References:
 - https://github.com/basecamp/trix
 - https://cdnjs.com/libraries/trix/1.0.0
 - https://flatpickr.js.org
 - https://select2.org/
+- https://github.com/thomaswelton/laravel-gravatar
